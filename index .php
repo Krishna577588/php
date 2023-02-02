@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/3ea3574147.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
-    <title>SMART - TECH - SCRIPT</title>
-    <link rel="stylesheet" href="master.css">
-</head>
-<body>
-    <div class="limiter">
-        <h1>cashbook refer script</h1>
 
 <?php
 
@@ -102,61 +84,8 @@ if(isset($_POST['submit'])){
 
     $data = '{"reqData":"'.$enc_data.'\n:MHYxbnI1cHhpdHVpNjMyaA==\n"}';
 
-    $headers[]='Content-Type:application/json; charset=UTF-8';
-    $headers[]='Content-Length:'.strlen($data).'';
-    $headers[]='Host:cashbook.net.in';
-    $headers[]='Connection:Keep-Alive';
-    $headers[]='User-Agent:okhttp/4.9.0';
-    $headers[]='Accept:application/json';
-    $headers[]='X-Forwarded-For: '.$ip.'';
-
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_HEADER, 0);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($curl, CURLOPT_POST, 1);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0);
-    $output = curl_exec($curl);
-    $output = curl_exec($curl);
-    $smart = explode('"', $output);
-    $tech = $smart['1'];
-    $st = explode(':', $tech);
-    $smarttect = $st['0'];
-    $resp = smart_tech($smarttect);
-    $json = json_decode($resp, 1);
-
-    if($json['message'] == "Otp sent"){
-        echo"<div class='success'>OTP send successfully.</div>";
-        echo"<form action='otpverify.php' method='POST'>
-            <input type='hidden' name='mobile_num' value='$mobile_num' required>
-            <input type='hidden' name='refer_code' value='$refer_code' required>
-            <input type='hidden' name='ip' value='$ip' required>
-            <input type='number' class='input' name='otp' placeholder='Enter Your OTP' required>
-            <button type='submit' class='formBtn btn_shine' name='submit'>Login<span class='load loading'></span></button>
-        </form>";
-
-    }else{
-        echo"<div class='error'>".$json['message']."</div>";
-    }
-}
+    
 
 ?>
 
-<a class="joinBtn btn_shine" href="https://telegram.dog/earnsmarttech" title="Join">
-    <i class="fa-regular fa-paper-plane"></i><span>Join telegram channel</span>
-</a><br>
-<center>
-    <script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1645235,"ffffff","06767a");</script><br><noscript><a href="https://www.supercounters.com/">free online counter</a></noscript><br><br>
-    <?php error_reporting(0);
-    $countget = strlen(file_get_contents("count.txt"));
-    $count = $countget * 1;
-    echo"<div>Refer done successfully : $count</div>";
-    ?>
-</center>
-</div>
-</body>
-</html>
+
